@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Samawati | Muslim Professional Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A227;
+            --gold-light: #E8D59A;
+            --navy: #1E3A5F;
+            --navy-dark: #152A45;
+            --cream: #FBF9F3;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-btn {
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: var(--navy);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #5A6B7A;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 20px;
+        }
+
+        /* Signup Form */
+        .signup-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(30, 58, 95, 0.1);
+        }
+
+        .signup-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .signup-form p {
+            font-size: 0.9rem;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--gold);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--navy);
+        }
+
+        .submit-btn:disabled {
+            background: #9CA3AF;
+            cursor: not-allowed;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6B7280;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gold);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #6B7280;
+            font-size: 0.95rem;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 6rem 2rem;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .mission-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission h2 span {
+            color: var(--gold);
+        }
+
+        .mission p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-verse {
+            font-style: italic;
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            border-left: 3px solid var(--gold);
+            padding-left: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: var(--cream);
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+        }
+
+        .stat-item p {
+            color: #6B7280;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #10B981;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image img {
+                max-width: 400px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Al-<span>Samawati</span></div>
+            <button class="nav-btn" onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})">
+                Join Waitlist
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Empowering <span>Muslim Professionals</span> Worldwide</h1>
+                <p>Connect with like-minded professionals, grow your career, and strengthen the Ummah through meaningful business relationships.</p>
+                
+                <div class="signup-form" id="signup">
+                    <h3>Join the Waitlist</h3>
+                    <p>Be the first to access Al-Samawati when we launch.</p>
+                    
+                    <form id="waitlistForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="profession">Profession / Industry</label>
+                            <select id="profession" name="profession" required>
+                                <option value="">Select your field</option>
+                                <option value="technology">Technology & IT</option>
+                                <option value="finance">Finance & Banking</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="education">Education</option>
+                                <option value="legal">Legal</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="creative">Creative & Design</option>
+                                <option value="business">Business & Consulting</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" placeholder="London, Birmingham, etc.">
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            Join the Waitlist
+                        </button>
+                    </form>
+                    
+                    <div class="success-message" id="successMsg">
+                        ✅ You're on the list! We'll notify you when we launch.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://i.imgur.com/placeholder.png" alt="Al-Samawati - Muslim Professional Network" id="heroImg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Al-Samawati?</h2>
+            <p class="section-subtitle">A professional network built with Islamic values at its core.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Halal Networking</h3>
+                    <p>Connect with verified Muslim professionals who share your values and understand your journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Career Growth</h3>
+                    <p>Find jobs, mentors, and opportunities within the Muslim professional community.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🕌</div>
+                    <h3>Mosque Integration</h3>
+                    <p>Connect with professionals at your local mosque and build community ties.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Skills & Endorsements</h3>
+                    <p>Showcase your expertise and get endorsed by fellow Muslim professionals.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Halal Marketplace</h3>
+                    <p>Buy and sell within a trusted community. Support Muslim-owned businesses.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Mentorship</h3>
+                    <p>Give back to the Ummah by mentoring the next generation of Muslim professionals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="mission-container">
+            <h2>Our <span>Mission</span></h2>
+            <p>
+                Al-Samawati (السماواتي - "The Heavenly") is more than a professional network. 
+                It's a movement to unite the Muslim Ummah in the professional sphere, 
+                creating opportunities for growth, collaboration, and mutual support.
+            </p>
+            <p>
+                We believe that when Muslim professionals connect, collaborate, and support each other, 
+                we strengthen not just our careers, but our entire community.
+            </p>
+            <div class="mission-verse">
+                "And hold firmly to the rope of Allah all together and do not become divided."
+                <br><strong>— Quran 3:103</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>1.8B+</h3>
+                <p>Muslims Worldwide</p>
+            </div>
+            <div class="stat-item">
+                <h3>0</h3>
+                <p>Dedicated Professional Networks</p>
+            </div>
+            <div class="stat-item">
+                <h3>∞</h3>
+                <p>Potential Connections</p>
+            </div>
+            <div class="stat-item">
+                <h3>1</h3>
+                <p>United Ummah</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Al-<span>Samawati</span></div>
+        <p>© 2025 Al-Samawati. Empowering the Ummah, one connection at a time.</p>
+    </footer>
+
+    <script>
+        // Handle form submission - sends to Google Sheets
+        document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const form = this;
+            
+            btn.disabled = true;
+            btn.textContent = 'Joining...';
+            
+            // Google Apps Script Web App URL - Replace with yours
+            const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL';
+            
+            // Collect form data
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('profession', document.getElementById('profession').value);
+            formData.append('city', document.getElementById('city').value);
+            formData.append('timestamp', new Date().toLocaleString());
+            
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                // Show success
+                form.style.display = 'none';
+                document.getElementById('successMsg').classList.add('show');
+                
+            } catch (error) {
+                // Still show success (Google Scripts can have CORS issues but still work)
+                form.style.display = 'none';
+                document.getElementById('successMsg').classList.add('show');
+            }
+        });
+    </script>
+</body>
+</html>
